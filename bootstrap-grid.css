@@ -1,0 +1,76 @@
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+/* KOLOM */
+[class^="col-"] {
+    padding-right: 12px;
+    padding-left: 12px;
+    width: 100%;
+}
+
+/* SMALL DEVICE - MINIMUM 576PX */
+@media (min-width: 576px) {
+
+    .container {
+        max-width: 540px;
+    }
+
+    .col-sm-6 {
+        width: 50%;
+    }
+
+    .col-sm-12 {
+        width: 100%;
+    }
+}
+
+/* MEDIUM DEVICE - MINIMUM 768PX */
+@media (min-width: 768px) {
+
+    .container {
+        max-width: 720px;
+    }
+
+    .col-md-4 {
+        width: 33.333333%;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .col-md-8 {
+        width: 66.666667%;
+    }
+}
+
+/* LARGE DEVICE - MINIMUM 992PX */
+@media (min-width: 992px) {
+
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* EXTRA LARGE DEVICE - MINIMUM 1200PX */
+@media (min-width: 1200px) {
+
+    .container {
+        max-width: 1140px;
+    }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hasil Profil | KANTINKU</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <!-- NAVIGATION -->
+        <nav>
+            <a class="brand" href="index.html">
+                <span class="mark">✳</span>
+                KANTINKU<span style="color:var(--orange)">.</span>
+            </a>
+
+            <div class="navlinks">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#menu">Menu</a>
+                <a href="index.html#about">Tentang</a>
+                <a href="profil.html">Profil</a>
+            </div>
+
+            <a class="back" href="index.html">
+                ← Kembali
+            </a>
+        </nav>
+
+        <!-- HEADER -->
+        <header class="page-hero">
+
+            <span class="kicker">
+                PROFIL TERSIMPAN
+            </span>
+
+            <h1>
+                Profile <em style="color:var(--orange)">Preview.</em>
+            </h1>
+
+            <p class="intro" style="margin:auto">
+                Berikut adalah data profil yang sudah kamu isi.
+            </p>
+
+        </header>
+
+        <!-- PROFILE CONTENT -->
+        <main class="panel">
+
+            <div class="profile-card">
+
+                <div>
+                    <div class="avatar" id="initial">
+                        K
+                    </div>
+                </div>
+
+                <div class="profile-info">
+
+                    <h2 id="nama">
+                        Nama Pengguna
+                    </h2>
+
+                    <p id="tentang">
+                        Belum ada deskripsi diri.
+                    </p>
+
+                    <div class="info-line">
+                        <strong>NIM</strong>
+                        <span id="nim">-</span>
+                    </div>
+
+                    <div class="info-line">
+                        <strong>Program Studi</strong>
+                        <span id="prodi">-</span>
+                    </div>
+
+                    <div class="info-line">
+                        <strong>Universitas</strong>
+                        <span id="kampus">-</span>
+                    </div>
+
+                    <div class="info-line">
+                        <strong>Email</strong>
+                        <span id="email">-</span>
+                    </div>
+
+                    <div class="info-line">
+                        <strong>WhatsApp</strong>
+                        <span id="telepon">-</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- BUTTONS -->
+            <a class="btn" href="profil.html">
+                Edit Profil
+            </a>
+
+            <a
+                class="btn"
+                href="index.html"
+                style="background:var(--orange)"
+            >
+                Kembali ke Beranda
+            </a>
+
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap">
+
+            <strong>KANTINKU.</strong>
+
+            <p>
+                © 2026 UTS Project — Digital Business.
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mengambil data profil dari localStorage
+        const p = JSON.parse(
+            localStorage.getItem('kantinkuProfile') || '{}'
+        );
+
+        // Menampilkan data profil
+        [
+            'nama',
+            'nim',
+            'prodi',
+            'kampus',
+            'email',
+            'telepon',
+            'tentang'
+        ].forEach(k => {
+
+            const el = document.getElementById(k);
+
+            if (el) {
+                el.textContent = p[k] || (
+                    k === 'tentang'
+                        ? 'Belum ada deskripsi diri.'
+                        : '-'
+                );
+            }
+
+        });
+
+        // Menampilkan huruf pertama nama sebagai avatar
+        document.getElementById('initial').textContent =
+            (p.nama || 'K')
+                .trim()
+                .charAt(0)
+                .toUpperCase();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KANTINKU — Explore Your Campus Food</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- MAIN WRAPPER -->
+    <div class="wrap">
+
+        <!-- NAVIGATION -->
+        <nav>
+            <a class="brand" href="index.html">
+                <span class="mark">✳</span>
+                KANTINKU<span style="color:var(--orange)">.</span>
+            </a>
+
+            <div class="navlinks">
+                <a href="#home">Beranda</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">Tentang</a>
+                <a href="#how">Cara Pesan</a>
+                <a href="profil.html">Profil</a>
+                <a href="#contact">Kontak</a>
+            </div>
+
+            <button class="cart" id="openCart">
+                🛒 Keranjang <b id="count">0</b>
+            </button>
+        </nav>
+
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+
+            <div>
+                <span class="eyebrow">
+                    ✦ TEMAN LAPAR DI AREA KAMPUS
+                </span>
+
+                <h1>
+                    Good food<br>
+                    Good mood<br>
+                    <em>Good campus day</em>
+                </h1>
+
+                <p>
+                    Temukan makanan favoritmu tanpa harus bingung mencari.
+                    Dari camilan saat jeda kelas sampai makan siang yang
+                    bikin semangat, semua ada di Kantinku.
+                </p>
+
+                <a class="btn" href="#menu">
+                    Jelajahi menu ↗
+                </a>
+            </div>
+
+            <img
+                class="hero-img"
+                alt="Hidangan segar"
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1000&q=85"
+            >
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <div class="stats">
+
+            <div>
+                <strong>20+</strong>
+                <span>Pilihan menu</span>
+            </div>
+
+            <div>
+                <strong>5</strong>
+                <span>Kategori favorit</span>
+            </div>
+
+            <div>
+                <strong>100%</strong>
+                <span>Semangat kuliah</span>
+            </div>
+
+        </div>
+
+
+        <!-- MENU SECTION -->
+        <section id="menu">
+
+            <div class="heading">
+
+                <div>
+                    <span class="kicker">PILIHAN HARI INI</span>
+                    <h2>Cravings? We got you.</h2>
+                </div>
+
+                <p class="intro">
+                    Cari menu yang pas dengan mood dan budget kamu.
+                </p>
+
+            </div>
+
+
+            <!-- MENU FILTER AND SEARCH -->
+            <div class="toolbar">
+
+                <div class="filters" id="filters">
+
+                    <button class="filter active" data-cat="Semua">
+                        Semua
+                    </button>
+
+                    <button class="filter" data-cat="Makanan">
+                        Makanan
+                    </button>
+
+                    <button class="filter" data-cat="Minuman">
+                        Minuman
+                    </button>
+
+                    <button class="filter" data-cat="Camilan">
+                        Camilan
+                    </button>
+
+                </div>
+
+                <label class="search">
+                    ⌕
+                    <input
+                        id="search"
+                        type="text"
+                        placeholder="Cari menu..."
+                    >
+                </label>
+
+            </div>
+
+
+            <!-- MENU CARDS -->
+            <div class="cards" id="cards"></div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+
+        <div class="wrap about-grid">
+
+            <img
+                alt="Makanan bersama"
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85"
+            >
+
+            <div>
+
+                <span class="kicker">CERITA KANTINKU</span>
+
+                <h2>
+                    Small break,<br>
+                    big happiness.
+                </h2>
+
+                <p class="intro">
+                    Kantinku hadir sebagai teman digital mahasiswa untuk
+                    mengenal pilihan makanan di lingkungan kampus.
+                    Kami ingin pengalaman mencari makanan jadi lebih
+                    praktis, menyenangkan, dan membantu mendukung usaha
+                    para tenant kantin.
+                </p>
+
+
+                <!-- FEATURES -->
+                <div class="features">
+
+                    <div class="feature">
+                        🍱
+                        <b>Banyak pilihan</b>
+                        Menu dari berbagai tenant.
+                    </div>
+
+                    <div class="feature">
+                        💸
+                        <b>Ramah kantong</b>
+                        Sesuai budget mahasiswa.
+                    </div>
+
+                    <div class="feature">
+                        🔎
+                        <b>Mudah ditemukan</b>
+                        Cari berdasarkan kategori.
+                    </div>
+
+                    <div class="feature">
+                        🤝
+                        <b>Dukung UMKM</b>
+                        Kenalkan produk tenant lokal.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW TO ORDER SECTION -->
+    <div class="wrap">
+
+        <section id="how">
+
+            <span class="kicker">SEMUDAH ITU</span>
+
+            <h2>How to get your bites?</h2>
+
+            <div class="steps">
+
+                <article class="step">
+                    <strong>01</strong>
+                    <h3>Explore</h3>
+
+                    <p>
+                        Jelajahi daftar menu dan pilih makanan atau
+                        minuman favoritmu.
+                    </p>
+                </article>
+
+                <article class="step">
+                    <strong>02</strong>
+                    <h3>Add to cart</h3>
+
+                    <p>
+                        Tambahkan pilihan ke keranjang dan cek
+                        total belanja.
+                    </p>
+                </article>
+
+                <article class="step">
+                    <strong>03</strong>
+                    <h3>Enjoy your meal</h3>
+
+                    <p>
+                        Konfirmasi pesanan kepada tenant dan nikmati
+                        makananmu.
+                    </p>
+                </article>
+
+            </div>
+
+
+            <!-- CALL TO ACTION -->
+            <div class="cta">
+
+                <div>
+                    <h2>Hungry between classes?</h2>
+
+                    <p>
+                        Temukan teman terbaik untuk waktu istirahatmu.
+                    </p>
+                </div>
+
+                <a class="btn" href="#menu">
+                    Cari makanan sekarang ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer id="contact">
+
+        <div class="wrap">
+
+            <div class="foot">
+
+                <!-- BRAND INFORMATION -->
+                <div>
+                    <a class="brand" href="#home" style="color:white">
+                        ✳ KANTINKU.
+                    </a>
+
+                    <p>
+                        Tempat digital untuk menemukan rasa,
+                        mendukung tenant lokal, dan membuat
+                        hari-hari di kampus lebih menyenangkan.
+                    </p>
+                </div>
+
+
+                <!-- EXPLORE LINKS -->
+                <div>
+                    <b>EXPLORE</b>
+
+                    <p>
+                        <a href="#home">Beranda</a><br>
+                        <a href="#menu">Daftar Menu</a><br>
+                        <a href="profil.html">Profil</a>
+                    </p>
+                </div>
+
+
+                <!-- CONTACT INFORMATION -->
+                <div class="contact-box">
+
+                    <b>HUBUNGI KAMI</b>
+
+                    <div class="contact-buttons">
+
+                        <a
+                            href="mailto:jacqlienimanuel@gmail.com"
+                            class="contact-btn email-btn"
+                        >
+                            ✉️ Email Kantinku
+                        </a>
+
+                        <a
+                            href="https://wa.me/6282358878157"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-btn whatsapp-btn"
+                        >
+                            💬 WhatsApp Kantinku
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COPYRIGHT -->
+            <div class="copy">
+                © 2026 KANTINKU. UTS Project — Digital Business.
+                Made with ♡ for campus life.
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SHOPPING CART MODAL -->
+    <div class="overlay" id="overlay">
+
+        <div class="modal">
+
+            <div class="modalhead">
+
+                <h3>Keranjang kamu</h3>
+
+                <button class="close" id="close">
+                    ✕
+                </button>
+
+            </div>
+
+
+            <!-- CART ITEMS -->
+            <div id="items"></div>
+
+
+            <!-- TOTAL PRICE -->
+            <div class="total">
+                <span>Total</span>
+                <span id="total">Rp0</span>
+            </div>
+
+
+            <!-- CHECKOUT BUTTON -->
+            <button class="btn checkout" id="checkout">
+                Lanjutkan pesanan ↗
+            </button>
+
+            <p style="font-size:11px; color:#788178; line-height:1.6">
+                Demo UTS. Konfirmasi pembelian dilakukan langsung
+                kepada tenant.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="javascript/js.js"></script>
+
+</body>
+</html>

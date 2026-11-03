@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detail Menu | KANTINKU</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- DETAIL PAGE STYLE -->
+    <style>
+        .detail-page {
+            padding: 38px 0 55px;
+        }
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 38px;
+            align-items: center;
+            margin: 28px 0 42px;
+        }
+
+        .detail-photo {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 20px;
+            background: #eee;
+        }
+
+        .detail-copy h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            margin: 12px 0;
+        }
+
+        .detail-copy p {
+            line-height: 1.8;
+            color: #657064;
+        }
+
+        .detail-price {
+            font-size: 27px;
+            font-weight: 800;
+            color: var(--green);
+            margin: 18px 0;
+        }
+
+        .detail-info {
+            background: #f7f5ed;
+            padding: 22px 25px;
+            border-radius: 16px;
+            margin: 22px 0;
+        }
+
+        .detail-info h3 {
+            margin: 0 0 12px;
+        }
+
+        .detail-info p {
+            margin: 7px 0;
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .detail-actions .btn {
+            border: 0;
+            cursor: pointer;
+        }
+
+        .detail-note {
+            background: #f7f5ed;
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+
+        .not-found {
+            text-align: center;
+            padding: 70px 15px;
+        }
+
+        @media (max-width: 700px) {
+
+            .detail-layout {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .detail-photo {
+                height: 270px;
+            }
+
+            .detail-page {
+                padding-top: 15px;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- MAIN WRAPPER -->
+    <div class="wrap">
+
+        <!-- NAVIGATION -->
+        <nav>
+
+            <a class="brand" href="index.html">
+                <span class="mark">✳</span>
+                KANTINKU<span style="color:var(--orange)">.</span>
+            </a>
+
+            <div class="navlinks">
+                <a href="index.html#home">Beranda</a>
+                <a href="index.html#menu">Menu</a>
+                <a href="index.html#about">Tentang</a>
+                <a href="profil.html">Profil</a>
+            </div>
+
+        </nav>
+
+
+        <!-- DETAIL MENU CONTENT -->
+        <main class="detail-page" id="detailContent"></main>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="wrap">
+
+            <strong>KANTINKU.</strong>
+
+            <p>
+                Teman digital mahasiswa untuk menemukan pilihan
+                makanan di area kampus.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // ========================================
+        // 1. DATA MENU KANTINKU
+        // ========================================
+
+        var menuData = [
+
+            {
+                id: 1,
+                name: 'Nasi Ayam Sambal',
+                category: 'Makanan',
+                price: 20000,
+
+                description:
+                    'Nasi hangat dengan ayam gurih dan sambal pilihan. Menu mengenyangkan untuk menemani aktivitas kuliah.',
+
+                image:
+                    'https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b31f446f-d365-4052-88f6-28e557107070_Go-Biz_20260411_222817.jpeg',
+
+                note:
+                    'Pilihan makanan untuk menemani waktu istirahat dan aktivitas kuliah.'
+            },
+
+
+            {
+                id: 2,
+                name: 'Rice Bowl Teriyaki',
+                category: 'Makanan',
+                price: 18000,
+
+                description:
+                    'Rice bowl dengan ayam teriyaki bersaus manis dan gurih, praktis dinikmati di sela jadwal kuliah. Pilihan yang cocok untuk kamu yang menyukai hidangan nasi dengan rasa gurih-manis.',
+
+                image:
+                    'https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/chicken_teriyaki_don.jpg',
+
+                note:
+                    'Rice bowl dengan cita rasa saus teriyaki yang manis dan gurih.'
+            },
+
+
+            {
+                id: 3,
+                name: 'Es Kopi Susu',
+                category: 'Minuman',
+                price: 10000,
+
+                description:
+                    'Minuman kopi dengan campuran susu yang creamy, cocok menjadi teman saat belajar atau mengerjakan tugas. Sajikan dingin untuk pengalaman minum yang lebih menyegarkan. Mengandung kafein.',
+
+                image:
+                    'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80',
+
+                note:
+                    'Minuman kopi creamy untuk menemani waktu belajar dan mengerjakan tugas.'
+            },
+
+
+            {
+                id: 4,
+                name: 'Pisang Coklat',
+                category: 'Camilan',
+                price: 8000,
+
+                description:
+                    'Camilan pisang dengan cokelat lumer dan tekstur renyah, pas untuk mengisi jeda di antara kelas. Camilan praktis untuk dinikmati saat istirahat atau bersama teman.',
+
+                image:
+                    'https://nutrinusa.id/images/makanan/pisang-coklat.webp',
+
+                note:
+                    'Camilan dengan perpaduan pisang dan cokelat, cocok dinikmati saat jeda kelas.'
+            },
+
+
+            {
+                id: 5,
+                name: 'Fresh Mango Juice',
+                category: 'Minuman',
+                price: 12000,
+
+                description:
+                    'Jus mangga dengan cita rasa buah yang manis dan segar, cocok untuk menemani waktu istirahat. Jika kamu memiliki preferensi tingkat manis atau tambahan es, tanyakan langsung kepada tenant.',
+
+                image:
+                    'https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80',
+
+                note:
+                    'Pilihan minuman rasa mangga yang segar untuk menemani aktivitas.'
+            },
+
+
+            {
+                id: 6,
+                name: 'Mie Pedas',
+                category: 'Makanan',
+                price: 13000,
+
+                description:
+                    'Mie berbumbu dengan pilihan tingkat kepedasan untuk kamu yang menyukai menu bercita rasa pedas. Silakan tanyakan pilihan level yang tersedia kepada tenant.',
+
+                image:
+                    'https://assets.ladiestory.id/gallery/16460278901448338666-mie-pedas.jpg',
+
+                note:
+                    'Menu mie berbumbu yang dapat dipilih sesuai tingkat kepedasan.'
+            }
+
+        ];
+
+
+        // ========================================
+        // 2. FORMAT HARGA RUPIAH
+        // ========================================
+
+        function rupiah(n) {
+
+            return 'Rp' + n.toLocaleString('id-ID');
+
+        }
+
+
+        // ========================================
+        // 3. MENGAMBIL ID DARI URL
+        // ========================================
+
+        var params = new URLSearchParams(
+            window.location.search
+        );
+
+        var id = parseInt(
+            params.get('id') || '1',
+            10
+        );
+
+
+        // ========================================
+        // 4. MENCARI DATA MENU
+        // ========================================
+
+        var item = menuData.find(function(menu) {
+
+            return menu.id === id;
+
+        });
+
+
+        // ========================================
+        // 5. MENAMPILKAN DETAIL MENU
+        // ========================================
+
+        var root = document.getElementById('detailContent');
+
+
+        if (item) {
+
+            document.title = 'Detail ' + item.name + ' | KANTINKU';
+
+            root.innerHTML = `
+
+                <div class="kicker">
+                    DETAIL MENU KANTINKU
+                </div>
+
+                <section class="detail-layout">
+
+                    <!-- MENU IMAGE -->
+                    <img
+                        class="detail-photo"
+                        src="${item.image}"
+                        alt="${item.name}"
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x600?text=Foto+Menu'"
+                    >
+
+
+                    <!-- MENU INFORMATION -->
+                    <div class="detail-copy">
+
+                        <span class="tag">
+                            ${item.category}
+                        </span>
+
+                        <h1>${item.name}</h1>
+
+                        <p>
+                            ${item.description}
+                        </p>
+
+
+                        <!-- PRICE -->
+                        <div class="detail-price">
+                            ${rupiah(item.price)}
+                        </div>
+
+
+                        <!-- DETAIL INFORMATION -->
+                        <div class="detail-info">
+
+                            <h3>Informasi menu</h3>
+
+                            <p>
+                                <b>Nama menu:</b>
+                                ${item.name}
+                            </p>
+
+                            <p>
+                                <b>Kategori:</b>
+                                ${item.category}
+                            </p>
+
+                            <p>
+                                <b>Harga:</b>
+                                ${rupiah(item.price)}
+                            </p>
+
+                            <p>
+                                <b>Deskripsi:</b>
+                                ${item.description}
+                            </p>
+
+                        </div>
+
+
+                        <p>
+                            ${item.note}
+                        </p>
+
+
+                        <!-- ACTION BUTTON -->
+                        <div class="detail-actions">
+
+                            <a
+                                class="btn"
+                                href="index.html#menu"
+                            >
+                                Kembali ke menu ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ADDITIONAL INFORMATION -->
+                <section class="detail-note">
+
+                    <span class="kicker">
+                        PILIHAN KANTINKU
+                    </span>
+
+                    <h2>
+                        Temukan menu favoritmu
+                    </h2>
+
+                    <p class="intro">
+                        Lihat pilihan menu lainnya di halaman utama
+                        KANTINKU. Harga dan deskripsi mengikuti
+                        informasi yang tercantum pada daftar menu project.
+                    </p>
+
+                </section>
+
+            `;
+
+        }
+
+
+        // ========================================
+        // 6. JIKA MENU TIDAK DITEMUKAN
+        // ========================================
+
+        else {
+
+            root.innerHTML = `
+
+                <div class="not-found">
+
+                    <h2>Menu tidak ditemukan</h2>
+
+                    <p>
+                        Silakan kembali ke daftar menu KANTINKU.
+                    </p>
+
+                    <a
+                        class="btn"
+                        href="index.html#menu"
+                    >
+                        Kembali ke menu
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+</html>

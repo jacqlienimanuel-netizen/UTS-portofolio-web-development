@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Pengguna | KANTINKU</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- MAIN WRAPPER -->
+    <div class="wrap">
+
+        <!-- NAVIGATION -->
+        <nav>
+
+            <a class="brand" href="index.html">
+                <span class="mark">✳</span>
+                KANTINKU<span style="color:var(--orange)">.</span>
+            </a>
+
+            <div class="navlinks">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#menu">Menu</a>
+                <a href="index.html#about">Tentang</a>
+                <a href="profil.html">Profil</a>
+            </div>
+
+            <a class="back" href="index.html">
+                ← Kembali
+            </a>
+
+        </nav>
+
+
+        <!-- HEADER PROFIL -->
+        <header class="page-hero">
+
+            <span class="kicker">
+                PROFIL PENGGUNA
+            </span>
+
+            <h1>
+                Kenali <em style="color:var(--orange)">Dirimu.</em>
+            </h1>
+
+            <p class="intro" style="margin:auto">
+                Lengkapi formulir profil berikut untuk menampilkan
+                identitas pengguna Kantinku.
+            </p>
+
+        </header>
+
+
+        <!-- FORM PROFIL -->
+        <main class="panel">
+
+            <form id="profileForm">
+
+                <div class="form-grid">
+
+                    <!-- NAMA LENGKAP -->
+                    <div class="field">
+
+                        <label for="nama">
+                            Nama lengkap *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nama"
+                            name="nama"
+                            placeholder="Masukkan nama lengkap"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- NIM -->
+                    <div class="field">
+
+                        <label for="nim">
+                            NIM *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nim"
+                            name="nim"
+                            placeholder="Masukkan NIM"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PROGRAM STUDI -->
+                    <div class="field">
+
+                        <label for="prodi">
+                            Program studi *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="prodi"
+                            name="prodi"
+                            placeholder="Contoh: Bisnis Digital"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- UNIVERSITAS -->
+                    <div class="field">
+
+                        <label for="kampus">
+                            Universitas *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="kampus"
+                            name="kampus"
+                            value="Universitas Widya Nusantara"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="field">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="nama@email.com"
+                        >
+
+                    </div>
+
+
+                    <!-- NOMOR WHATSAPP -->
+                    <div class="field">
+
+                        <label for="telepon">
+                            Nomor WhatsApp
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telepon"
+                            name="telepon"
+                            placeholder="08xxxxxxxxxx"
+                        >
+
+                    </div>
+
+
+                    <!-- TENTANG SAYA -->
+                    <div class="field full">
+
+                        <label for="tentang">
+                            Tentang saya
+                        </label>
+
+                        <textarea
+                            id="tentang"
+                            name="tentang"
+                            placeholder="Ceritakan sedikit tentang diri dan minat kamu..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOMBOL SIMPAN -->
+                <button class="btn" type="submit">
+                    Simpan Profil ↗
+                </button>
+
+            </form>
+
+        </main>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="wrap">
+
+            <strong>KANTINKU.</strong>
+
+            <p>
+                Teman digital untuk kehidupan kampus
+                yang lebih menyenangkan.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Mengambil formulir profil
+        const profileForm = document.getElementById('profileForm');
+
+        // Proses ketika tombol simpan ditekan
+        profileForm.addEventListener('submit', function(event) {
+
+            // Mencegah halaman dimuat ulang
+            event.preventDefault();
+
+            // Mengambil seluruh data formulir
+            const data = Object.fromEntries(
+                new FormData(this).entries()
+            );
+
+            // Menyimpan data ke localStorage
+            localStorage.setItem(
+                'kantinkuProfile',
+                JSON.stringify(data)
+            );
+
+            // Mengarahkan pengguna ke halaman hasil profil
+            window.location.href = 'profil-tampil.html';
+
+        });
+
+    </script>
+
+</body>
+</html>
